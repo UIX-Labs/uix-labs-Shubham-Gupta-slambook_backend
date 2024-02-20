@@ -24,8 +24,8 @@ const { MongoClient } = require('mongodb');
 const PORT = 8000;
 const HOSTNAME = 'localhost';
 
-const mongoUri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(mongoUri);
+const mongoConnectionUri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
+const client = new MongoClient(mongoConnectionUri);
 
 async function startServer() {
   try {
