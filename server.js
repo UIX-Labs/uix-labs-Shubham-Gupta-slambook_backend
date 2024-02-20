@@ -18,39 +18,39 @@
 // Task 2 : Connecting with mongo db data base 
 
 
-const http = require('http');
-const { MongoClient } = require('mongodb');
+// const http = require('http');
+// const { MongoClient } = require('mongodb');
 
-const PORT = 8000;
-const HOSTNAME = 'localhost';
+// const PORT = 8000;
+// const HOSTNAME = 'localhost';
 
-const mongoConnectionUri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
-const client = new MongoClient(mongoConnectionUri);
+// const mongoConnectionUri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
+// const client = new MongoClient(mongoConnectionUri);
 
-async function startServer() {
-  try {
-    // Connect to MongoDB
-    await client.connect();
-    console.log('Connected to MongoDB');
+// async function startServer() {
+//   try {
+//     // Connect to MongoDB
+//     await client.connect();
+//     console.log('Connected to MongoDB');
 
-    // Create HTTP Server
-    const server = http.createServer((req, res) => {
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'text/plain');
-      res.end('Hello World\n');
-    });
+//     // Create HTTP Server
+//     const server = http.createServer((req, res) => {
+//       res.statusCode = 200;
+//       res.setHeader('Content-Type', 'text/plain');
+//       res.end('Hello World\n');
+//     });
 
-    // Start HTTP Server
-    server.listen(PORT, HOSTNAME, () => {
-      console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
-    });
-  } catch (err) {
-    console.error('Could not connect to MongoDB:', err);
-    process.exit(1);
-  }
-}
+//     // Start HTTP Server
+//     server.listen(PORT, HOSTNAME, () => {
+//       console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+//     });
+//   } catch (err) {
+//     console.error('Could not connect to MongoDB:', err);
+//     process.exit(1);
+//   }
+// }
 
-startServer();
+// startServer();
 
 
 
@@ -59,14 +59,14 @@ startServer();
 
 // TASK 3 : Use mongoose instead of mongodb driver 
 
-/**
+
 const http = require('http');
 const mongoose = require('mongoose');
 
-const PORT = 80;
-const HOSTNAME = '0.0.0.0';
+const PORT = 8000;
+const HOSTNAME = 'localhost';
 
-const uri = "mongodb+srv://suraj_admin:suraj_admin@cluster0.dme40pl.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
 
 async function startServer() {
   try {
@@ -93,7 +93,7 @@ async function startServer() {
 
 startServer();
 
- */
+ 
 
 
 
