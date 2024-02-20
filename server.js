@@ -20,11 +20,7 @@
 
 const http = require('http');
 const { MongoClient } = require('mongodb');
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+
 const PORT = 8000;
 const HOSTNAME = 'localhost';
 
