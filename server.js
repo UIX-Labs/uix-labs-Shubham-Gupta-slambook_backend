@@ -25,7 +25,7 @@ const PORT = 8000;
 const HOSTNAME = 'localhost';
 
 const mongoUri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(mongoUri);
 
 async function startServer() {
   try {
