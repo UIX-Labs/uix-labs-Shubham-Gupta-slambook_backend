@@ -26,7 +26,7 @@ const http = require('http');
 const { MongoClient } = require('mongodb');
 
 const PORT = 8000;
-const HOSTNAME = '0.0.0.0';
+const HOSTNAME = 'localhost';
 
 const mongoUri = 'mongodb+srv://heyshubham24:Shubham2409@<mongo_cluster_url>';
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
