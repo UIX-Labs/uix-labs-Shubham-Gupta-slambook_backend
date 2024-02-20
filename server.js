@@ -3,11 +3,7 @@
 
 // const http = require('http');
 
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader('Content-Type', 'text/plain');
-//   res.end('Hello World\n');
-// });
+
 
 // const PORT = 8000;
 // const HOSTNAME = 'localhost';
@@ -24,11 +20,15 @@
 
 const http = require('http');
 const { MongoClient } = require('mongodb');
-
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
 const PORT = 8000;
 const HOSTNAME = 'localhost';
 
-const mongoUri = 'mongodb+srv://heyshubham24:Shubham2409@<mongo_cluster_url>';
+const mongoUri = 'mongodb+srv://heyshubham24:Shubham2409@https://cloud.mongodb.com/v2/65d4c213d1add44364ce5065#/clusters/detail/Cluster0';
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function startServer() {
