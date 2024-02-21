@@ -63,8 +63,8 @@
 const http = require('http');
 const mongoose = require('mongoose');
 
-const PORT = 8000;
-const HOSTNAME = 'localhost';
+const PORT = 80;
+const HOSTNAME = '0.0.0.0';
 
 const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
 
