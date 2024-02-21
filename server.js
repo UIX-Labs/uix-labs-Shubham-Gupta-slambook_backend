@@ -125,8 +125,8 @@ const url = require('url');
 const mongoose = require('mongoose');
 const { StringDecoder } = require('string_decoder');
 
-const livePort = 8000;
-const serverHostName = 'localhost';
+const LIVE_PORT = 8000;
+const SERVER_HOSTNAME = 'localhost';
 
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
@@ -173,8 +173,8 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(livePort, serverHostName, () => {
-  console.log(`Server running at http://${serverHostName}:${livePort}/`);
+server.listen(LIVE_PORT, SERVER_HOSTNAME, () => {
+  console.log(`Server running at http://${SERVER_HOSTNAME}:${LIVE_PORT}/`);
 });
  
 
