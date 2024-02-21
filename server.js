@@ -59,7 +59,7 @@
 
 // TASK 3 : Use mongoose instead of mongodb driver 
 
-
+/*
 const http = require('http');
 const mongoose = require('mongoose');
 
@@ -92,7 +92,7 @@ async function startServer() {
 }
 
 startServer();
-
+*/
  
 
 
@@ -119,14 +119,14 @@ const SlamBook = mongoose.model('SlamBook', slambookSchema);
 
 
 //TASK5: Write sample crud endpoints
-/**
+
 const http = require('http');
 const url = require('url');
 const mongoose = require('mongoose');
 const { StringDecoder } = require('string_decoder');
 
-const PORT = 80;
-const HOSTNAME = '0.0.0.0';
+const livePort = 8000;
+const serverHostName = 'localhost';
 
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
@@ -173,10 +173,10 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, HOSTNAME, () => {
-  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+server.listen(livePort, serverHostName, () => {
+  console.log(`Server running at http://${serverHostName}:${livePort}/`);
 });
- */
+ 
 
 
 //TASK 06-09 CRUD For Slambook: 
