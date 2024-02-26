@@ -63,8 +63,8 @@
 const http = require('http');
 const mongoose = require('mongoose');
 
-const PORT = 8000;
-const HOSTNAME = 'localhost';
+const LIVE_PORT = 80;
+const SERVER_HOSTNAME = '0.0.0.0';
 
 const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
 
@@ -82,9 +82,9 @@ async function startServer() {
     });
 
     // Start HTTP Server
-    server.listen(PORT, HOSTNAME, () => {
-      console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
-    });
+    // server.listen(LIVE_PORT,SERVER_HOSTNAME, () => {
+    //   console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+    // });
   } catch (err) {
     console.error('Could not connect to MongoDB:', err);
     process.exit(1);
@@ -92,8 +92,8 @@ async function startServer() {
 }
 
 startServer();
-*/
- 
+
+ */
 
 
 
@@ -125,9 +125,13 @@ const url = require('url');
 const mongoose = require('mongoose');
 const { StringDecoder } = require('string_decoder');
 
-const LIVE_PORT = 8000;
-const SERVER_HOSTNAME = 'localhost';
+const LIVE_PORT = 80;
+const SERVER_HOSTNAME = '0.0.0.0';
+const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
 
+
+  mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    console.log('Connected to MongoDB');
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
   const path = parsedUrl.pathname.replace(/^\/+|\/+$/g, '');
@@ -147,7 +151,7 @@ const server = http.createServer((req, res) => {
     let statusCode = 404;
 
     // Sample CRUD Endpoints
-    if (path === '') {
+    if (path === '/slambook') {
       switch (method) {
         case 'get':
           responseContent = 'Read: Sample Data\n';
