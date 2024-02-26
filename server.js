@@ -58,7 +58,7 @@
 
 
 // TASK 3 : Use mongoose instead of mongodb driver 
-
+/*
 
 const http = require('http');
 const mongoose = require('mongoose');
@@ -92,8 +92,7 @@ async function startServer() {
 }
 
 startServer();
-
- 
+*/
 
 
 
@@ -180,48 +179,48 @@ server.listen(PORT, HOSTNAME, () => {
 
 
 //TASK 06-09 CRUD For Slambook: 
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-// const PORT = 80;
-// const HOSTNAME = '0.0.0.0';
+const PORT = 80;
+const HOSTNAME = '0.0.0.0';
 
-// const app = express();
+const app = express();
 
-// // Middleware
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// app.use(cors());
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
-// // MongoDB connection
-// const uri = "mongodb+srv://suraj_admin:suraj_admin@cluster0.dme40pl.mongodb.net/?retryWrites=true&w=majority";
-// mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log('Connected to MongoDB');
-//   })
-//   .catch((err) => {
-//     console.error('Could not connect to MongoDB:', err);
-//     process.exit(1);
-//   });
+// MongoDB connection
+const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Could not connect to MongoDB:', err);
+    process.exit(1);
+  });
 
 // SlamBook schema and model
-// const slambookSchema = new mongoose.Schema({
-//   nameInYourContact: String,
-//   relationship: String,
-//   somethingYouLikeInMe: String,
-//   somethingYouHateInMe: String,
-//   ifIDieYourReaction: String,
-//   whatDidYouFeelWhenYouFirstSawMe: String,
-//   beutifulMessageForMe: String,
-//   nickNameForMe: String,
-//   songDedicatedToMe: String,
-//   canIShare: String,
-//   yourName: String
-// });
+const slambookSchema = new mongoose.Schema({
+  nameInYourContact: String,
+  relationship: String,
+  somethingYouLikeInMe: String,
+  somethingYouHateInMe: String,
+  ifIDieYourReaction: String,
+  whatDidYouFeelWhenYouFirstSawMe: String,
+  beutifulMessageForMe: String,
+  nickNameForMe: String,
+  songDedicatedToMe: String,
+  canIShare: String,
+  yourName: String
+});
 
-// const SlamBook = mongoose.model('SlamBook', slambookSchema);
+const SlamBook = mongoose.model('SlamBook', slambookSchema);
 // // Routes
 // app.get('/', (req, res) => {
 //   res.json({ message: `Yay, app is running hvdhbvhjdbf on port ${PORT}` });
@@ -237,16 +236,16 @@ server.listen(PORT, HOSTNAME, () => {
 //   }
 // });
 
-// app.post('/slambook', async (req, res) => {
-//   try {
-//     const newEntry = new SlamBook(req.body);
-//     await newEntry.save();
-//     res.status(201).json({ message: 'Entry Created' });
-//   } catch (error) {
-//     console.error('Error creating slambook entry:', error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
+app.post('/slambook', async (req, res) => {
+  try {
+    const newEntry = new SlamBook(req.body);
+    await newEntry.save();
+    res.status(201).json({ message: 'Entry Created' });
+  } catch (error) {
+    console.error('Error creating slambook entry:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // app.get('/slambook/:id', async (req, res) => {
 //   try {
@@ -289,7 +288,7 @@ server.listen(PORT, HOSTNAME, () => {
 //     res.status(500).json({ error: 'Internal Server Error' });
 //   }
 // });
-// // Start the server
-// app.listen(PORT, HOSTNAME, () => {
-//   console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
-// });
+// Start the server
+app.listen(PORT, HOSTNAME, () => {
+  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+});
