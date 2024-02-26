@@ -180,31 +180,31 @@ server.listen(PORT, HOSTNAME, () => {
 
 
 //TASK 06-09 CRUD For Slambook: 
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
 
-const PORT = 80;
-const HOSTNAME = '0.0.0.0';
+// const PORT = 80;
+// const HOSTNAME = '0.0.0.0';
 
-const app = express();
+// const app = express();
 
 // // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cors());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(cors());
 
 // // MongoDB connection
-const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((err) => {
-    console.error('Could not connect to MongoDB:', err);
-    process.exit(1);
-  });
+// const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
+// mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {
+//     console.log('Connected to MongoDB');
+//   })
+//   .catch((err) => {
+//     console.error('Could not connect to MongoDB:', err);
+//     process.exit(1);
+//   });
 
 // SlamBook schema and model
 // const slambookSchema = new mongoose.Schema({
@@ -290,6 +290,6 @@ app.put('/slambook/:id', async (req, res) => {
 //   }
 // });
 // Start the server
-app.listen(PORT, HOSTNAME, () => {
-  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
-});
+// app.listen(PORT, HOSTNAME, () => {
+//   console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+// });
