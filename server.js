@@ -63,8 +63,8 @@
 const http = require('http');
 const mongoose = require('mongoose');
 
-const PORT = 8000;
-const HOSTNAME = 'localhost';
+const PORT = 80;
+const HOSTNAME = '0.0.0.0';
 
 const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
 
@@ -230,7 +230,7 @@ app.get('/', (req, res) => {
 app.get('/slambook', async (req, res) => {
   try {
     const entries = await SlamBook.find(req.query);
-    res.json(entries);
+    res.status({message:'OK'}).json(entries);
   } catch (error) {
     console.error('Error fetching slambook entries:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -252,7 +252,7 @@ app.get('/slambook/:id', async (req, res) => {
   try {
     const entry = await SlamBook.findById(req.params.id);
     if (entry) {
-      res.json(entry);
+      res.json(entry).status({message:'OK'})
     } else {
       res.status(404).json({ message: 'Entry not found' });
     }
