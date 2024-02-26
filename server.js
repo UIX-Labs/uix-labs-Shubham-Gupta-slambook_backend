@@ -58,7 +58,7 @@
 
 
 // TASK 3 : Use mongoose instead of mongodb driver 
-
+/*
 
 const http = require('http');
 const mongoose = require('mongoose');
@@ -95,7 +95,7 @@ startServer();
 
  
 
-
+*/
 
 //TASK 4:Create Document for slam book
 /*
@@ -180,31 +180,31 @@ server.listen(PORT, HOSTNAME, () => {
 
 
 //TASK 06-09 CRUD For Slambook: 
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-// const PORT = 80;
-// const HOSTNAME = '0.0.0.0';
+const PORT = 80;
+const HOSTNAME = '0.0.0.0';
 
-// const app = express();
+const app = express();
 
 // // Middleware
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
 // // MongoDB connection
-// const uri = "mongodb+srv://suraj_admin:suraj_admin@cluster0.dme40pl.mongodb.net/?retryWrites=true&w=majority";
-// mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log('Connected to MongoDB');
-//   })
-//   .catch((err) => {
-//     console.error('Could not connect to MongoDB:', err);
-//     process.exit(1);
-//   });
+const uri = "mongodb+srv://heyshubham24:Shubham2409@cluster0.cwjosgd.mongodb.net/Slambook?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Could not connect to MongoDB:', err);
+    process.exit(1);
+  });
 
 // SlamBook schema and model
 // const slambookSchema = new mongoose.Schema({
@@ -262,19 +262,19 @@ server.listen(PORT, HOSTNAME, () => {
 //   }
 // });
 
-// app.put('/slambook/:id', async (req, res) => {
-//   try {
-//     const updatedEntry = await SlamBook.findByIdAndUpdate(req.params.id, req.body, { new: true });
-//     if (updatedEntry) {
-//       res.json({ message: 'Entry Updated' });
-//     } else {
-//       res.status(404).json({ message: 'Entry not found' });
-//     }
-//   } catch (error) {
-//     console.error('Error updating slambook entry:', error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
+app.put('/slambook/:id', async (req, res) => {
+  try {
+    const updatedEntry = await SlamBook.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (updatedEntry) {
+      res.status(200).json({ message: 'Entry Updated' });
+    } else {
+      res.status(404).json({ message: 'Entry not found' });
+    }
+  } catch (error) {
+    console.error('Error updating slambook entry:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // app.delete('/slambook/:id', async (req, res) => {
 //   try {
@@ -289,7 +289,7 @@ server.listen(PORT, HOSTNAME, () => {
 //     res.status(500).json({ error: 'Internal Server Error' });
 //   }
 // });
-// // Start the server
-// app.listen(PORT, HOSTNAME, () => {
-//   console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
-// });
+// Start the server
+app.listen(PORT, HOSTNAME, () => {
+  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+});
