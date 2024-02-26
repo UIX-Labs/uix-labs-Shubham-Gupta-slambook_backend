@@ -180,20 +180,20 @@ server.listen(PORT, HOSTNAME, () => {
 
 
 //TASK 06-09 CRUD For Slambook: 
-// const express = require('express');
+const express = require('express');
 // const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // const PORT = 80;
 // const HOSTNAME = '0.0.0.0';
 
-// const app = express();
+const app = express();
 
-// // Middleware
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// app.use(cors());
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
 // // MongoDB connection
 // const uri = "mongodb+srv://suraj_admin:suraj_admin@cluster0.dme40pl.mongodb.net/?retryWrites=true&w=majority";
@@ -222,20 +222,20 @@ server.listen(PORT, HOSTNAME, () => {
 // });
 
 // const SlamBook = mongoose.model('SlamBook', slambookSchema);
-// // Routes
-// app.get('/', (req, res) => {
-//   res.json({ message: `Yay, app is running hvdhbvhjdbf on port ${PORT}` });
-// });
+// Routes
+app.get('/', (req, res) => {
+  res.json({ message: `Yay, app is running hvdhbvhjdbf on port ${PORT}` });
+});
 
-// app.get('/slambook', async (req, res) => {
-//   try {
-//     const entries = await SlamBook.find(req.query);
-//     res.json(entries);
-//   } catch (error) {
-//     console.error('Error fetching slambook entries:', error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
+app.get('/slambook', async (req, res) => {
+  try {
+    const entries = await SlamBook.find(req.query);
+    res.json(entries);
+  } catch (error) {
+    console.error('Error fetching slambook entries:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // app.post('/slambook', async (req, res) => {
 //   try {
@@ -248,19 +248,19 @@ server.listen(PORT, HOSTNAME, () => {
 //   }
 // });
 
-// app.get('/slambook/:id', async (req, res) => {
-//   try {
-//     const entry = await SlamBook.findById(req.params.id);
-//     if (entry) {
-//       res.json(entry);
-//     } else {
-//       res.status(404).json({ message: 'Entry not found' });
-//     }
-//   } catch (error) {
-//     console.error('Error fetching slambook entry:', error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
+app.get('/slambook/:id', async (req, res) => {
+  try {
+    const entry = await SlamBook.findById(req.params.id);
+    if (entry) {
+      res.json(entry);
+    } else {
+      res.status(404).json({ message: 'Entry not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching slambook entry:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // app.put('/slambook/:id', async (req, res) => {
 //   try {
